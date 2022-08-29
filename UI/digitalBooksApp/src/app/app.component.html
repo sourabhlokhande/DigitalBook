@@ -1,0 +1,11 @@
+<!-- <app-book-browser></app-book-browser> -->
+<nav class="navbar navbar-dark bg-dark"  *ngIf='myFunc("loggedIn") === "false"'>
+    <a class="navbar-brand" href="#">DigitalBooks</a>
+    <a class="navbar-brand" routerLink="home" routerLinkActive="active">Home</a>
+    <a class="navbar-brand" routerLink="book-browser">Book Browser</a>
+    <a class="navbar-brand" routerLink="history">History</a>
+    <a class="navbar-brand" routerLink="signup">Sign Up</a>
+    <a class="navbar-brand" routerLink="login">Log In</a>
+</nav>
+<br>
+<router-outlet></router-outlet>

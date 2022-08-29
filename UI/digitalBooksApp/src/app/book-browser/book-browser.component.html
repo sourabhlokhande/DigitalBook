@@ -1,0 +1,76 @@
+<div class="card-header">
+    <h1 style="text-align: center;">{{Title}}</h1>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-2">filter by:</div>
+            <label for="">Title
+                <div class="col-md-2"><input type="text" [(ngModel)]='book.title'/></div>
+            </label>
+            <label for="">Publisher
+                <div class="col-md-2"><input type="text" [(ngModel)]='book.publisher'/></div>
+            </label>
+            <label for="">Category
+                <div class="col-md-2"><input type="text" [(ngModel)]='book.category'/></div>
+            </label>
+            <label for="">Price
+                <div class="col-md-2"><input type="text" [(ngModel)]='book.price'/></div>
+            </label>
+        </div>
+        <div class='row'>
+            <div class='col-md-6'>
+                <!-- <h4>Book filter by:{{book.title}}</h4>
+                <h4>Book filter by:{{book.publisher}}</h4>
+                <h4>Book filter by:{{book.category}}</h4>
+                <h4>Book filter by:{{book.price}}</h4> -->
+                <div>
+                    <button (click)='filterBook()'>Filter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table" *ngIf="books.length">
+                <thead class="table-dark">
+                    <tr>
+                        <!-- <th>
+                            <button class="btn btn-primary" (click)='hideAndShow()'>
+                                {{showIcon ? "Hide":"Show"}} Logo
+                            </button>
+                        </th> -->
+                        <th>Book Id</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Author Id</th>
+                        <th>Price</th>
+                        <th>Publisher</th>
+                        <th>Published Date</th>
+                        <th>Active</th>
+                        <!-- <th>Content</th> -->
+                        <th>Created Date</th>
+                        <th>Modified Date</th>
+                        <th>Purchase</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let book of books">
+                        <!-- <td><img *ngIf='showIcon' [src]='book.url' [style.width.px]='iconWidth' [style.margin.px]='iconMargine'></td> -->
+                        <td>{{book.bookId}}</td>
+                        <td>{{book.title}}</td>
+                        <td>{{book.category}}</td>
+                        <td>{{book.authorId}}</td>
+                        <td>{{book.price}}</td>
+                        <td>{{book.publisher}}</td>
+                        <td>{{book.publishedDate}}</td>
+                        <td>{{book.active}}</td>
+                        <!-- <td>{{book.content}}</td> -->
+                        <td>{{book.createdDate}}</td>
+                        <td>{{book.modifiedDate}}</td>
+                        <td><button (click)='bookPurchase(book.bookId)'>Buy</button></td>
+                    </tr>
+                </tbody> 
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,93 @@
+
+<div class="container">
+    <h1>Purchased Book History</h1>
+    <div class="cards-container">
+        <div class="cards-form">
+            <form #form="ngForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="email" name="email" [(ngModel)]="pay.email">
+                </div>
+                
+                <div class="form-group">
+                    <button>Get Purchased Book Details</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="card-body" *ngIf='showHistory'>
+    <div class="table-responsive">
+        <table class="table" *ngIf="history.length">
+            <thead class="table-dark">
+                <tr>
+                   
+                    <th>Email</th>
+                    <th>Book Id</th>
+                    <th>Transaction Id</th>
+                    <th><button>Invoice</button></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of history">
+                    
+                    <td>{{item.email}}</td>
+                    <td>{{item.bookId}}</td>
+                    <td>{{item.paymentId}}</td>  
+                    <td><button (click)='Reciept(item)'>View</button></td>               
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="container" *ngIf='show'>
+    <div class="brand-section">
+        <div class="row">
+            <div class="col-6">
+                <h1 class="text-white">DigitalBooks</h1>
+            </div>
+            <div class="col-6">
+                <div class="company-details">
+                    <p class="text-white">Helplines</p>
+                    <p class="text-white">digitalbooks.com</p>
+                    <p class="text-white">+91 8770223372</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="body-section">
+        <div class="row">
+            <div class="col-6">
+                <h2 class="heading">Transaction Id : {{pay.paymentId}}</h2>
+                <p class="sub-heading">Email Address : {{pay.email}} </p>
+                <p class="sub-heading">Purchased Date : {{pay.createdDate}} </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="body-section">
+        <h3 class="heading">Purchased Items</h3>
+        <br>
+        <table class="table-bordered">
+            <thead>
+                <tr >
+                    <th>Book Name</th>
+                    <th class="w-20">Price</th>
+                </tr>
+            </thead>
+    <tbody>
+                <tr *ngFor='let bookDetail of book'>
+                    <td>{{bookDetail.title}}</td>
+                    <td>{{bookDetail.price}}</td>
+                </tr>
+           </tbody>
+        </table>
+        <br>
+    </div>
+
+    <div class="body-section">
+        <p>&copy; Copyright 2022 - DigitalBooks All rights reserved.</p>
+    </div>      
+</div>

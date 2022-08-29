@@ -1,0 +1,23 @@
+
+<div class="container" *ngIf='!check'>
+    <h1>Validate to read a book</h1>
+    <div class="cards-container">
+        <div class="cards-form">
+            <form #form="ngForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="email" name="email" [(ngModel)]="pay.email">
+                </div>
+                
+                <div class="form-group">
+                    <button>Confirm</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="check">
+    <h1>{{title}}</h1>
+    <p>{{content}}</p>
+</div>

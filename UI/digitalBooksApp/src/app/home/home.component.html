@@ -1,0 +1,41 @@
+
+<div class="card-body">
+    <div class="table-responsive" *ngIf="showTable">
+        <table class="table" *ngIf="books.length">
+            <thead class="table-dark">
+                <tr>
+                    <!-- <th>
+                        <button class="btn btn-primary" (click)='hideAndShow()'>
+                            {{showIcon ? "Hide":"Show"}} Logo
+                        </button>
+                    </th> -->
+                    
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Publisher</th>
+                    <th>Published Date</th>
+                    <th>Read Book</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let book of books">
+                    <!-- <td><img *ngIf='showIcon' [src]='book.url' [style.width.px]='iconWidth' [style.margin.px]='iconMargine'></td> -->
+                    
+                    <td>{{book.title}}</td>
+                    <td>{{book.category}}</td>  
+                    <td>{{book.price}}</td>
+                    <td>{{book.publisher}}</td>
+                    <td>{{book.publishedDate}}</td>
+                    <td><button (click)='readBook(book.bookId,book.content,book.title)'>Read</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div *ngIf="showContent">
+    <h1>{{currentReadingBook}}</h1>
+    <p>{{bookContent}}</p>
+</div>

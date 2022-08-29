@@ -1,0 +1,33 @@
+<div class="container">
+    <h1>Sign Up</h1>
+    <div class="cards-container">
+        <div class="cards-form">
+            <form #form="ngForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="">Author Name</label>
+                    <input type="text" name="AuthorName" [(ngModel)]="author.authorName">
+                </div>
+                <div class="form-group">
+                    <label for="">User Type</label>
+                    
+                    <input type="text" name="UserType" [(ngModel)]="author.userType">
+                </div>
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="text" name="Password" [(ngModel)]="author.password">
+                </div>
+                <!-- <div class="form-group">
+                    <label for="">CreatedDate</label>
+                    <input type="date" name="CreatedDate" [(ngModel)]="author.createdDate">
+                </div>
+                <div class="form-group">
+                    <label for="">ModifiedDate</label>
+                    <input type="date" name="ModifiedDate" [(ngModel)]="author.modifiedDate">
+                </div> -->
+                <div class="form-group">
+                    <button>Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
